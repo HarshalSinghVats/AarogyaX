@@ -363,6 +363,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
+    marginTop: 40,
     paddingVertical: 16,
     backgroundColor: 'white',
     borderBottomWidth: 1,
