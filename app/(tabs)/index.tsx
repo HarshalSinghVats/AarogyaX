@@ -1,18 +1,18 @@
 // app/index.tsx
+import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 import React, { useCallback, useMemo } from 'react';
-import { 
-  View, 
-  Text, 
-  TouchableOpacity, 
-  StyleSheet, 
+import { useTranslation } from 'react-i18next';
+import {
+  Dimensions,
+  Platform,
   SafeAreaView,
   StatusBar,
-  Dimensions,
-  Platform
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
 } from 'react-native';
-import { useTranslation } from 'react-i18next';
-import { useRouter } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
 
 // Constants
 const { width } = Dimensions.get('window');
@@ -146,24 +146,7 @@ export default function Home() {
           ))}
         </View>
 
-        {/* Quick Stats or Recent Activity */}
-        <View style={styles.quickStats}>
-          <Text style={styles.quickStatsTitle}>Quick Access</Text>
-          <View style={styles.quickStatsRow}>
-            <TouchableOpacity style={styles.quickStatItem}>
-              <Ionicons name="time-outline" size={16} color="#666" />
-              <Text style={styles.quickStatText}>Recent</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.quickStatItem}>
-              <Ionicons name="bookmark-outline" size={16} color="#666" />
-              <Text style={styles.quickStatText}>Saved</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.quickStatItem}>
-              <Ionicons name="notifications-outline" size={16} color="#666" />
-              <Text style={styles.quickStatText}>Alerts</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        {/* Quick Stats or Recent Activity */}  
       </SafeAreaView>
     </>
   );
@@ -181,7 +164,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: 32,
+    marginBottom: 132,
+    marginTop:40,
     paddingTop: 10
   },
   welcomeContainer: {

@@ -1,23 +1,23 @@
 // app/profile.tsx
-import React, { useState, useCallback } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  TouchableOpacity,
-  ScrollView,
-  Image,
-  StatusBar,
-  Platform,
-  Dimensions
-} from 'react-native';
-import { useTranslation } from 'react-i18next';
-import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import {
+  Dimensions,
+  Image,
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View
+} from 'react-native';
 // Update the import path to the correct location of your i18n configuration file
-import { i18n, LANGUAGE_KEY } from '../../i18n';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { i18n, LANGUAGE_KEY } from '../../i18n';
 
 const { width } = Dimensions.get('window');
 
@@ -32,48 +32,64 @@ const USER_DATA = {
   avatar: 'https://via.placeholder.com/120x120/6366f1/ffffff?text=RK'
 };
 
-const MENU_ITEMS = [
-  {
-    id: 'medical_records',
-    icon: 'document-text-outline',
-    title: 'Medical Records',
-    subtitle: 'View your health history',
-    route: '/(tabs)/medical-records'
-  },
-  {
-    id: 'appointments',
-    icon: 'calendar-outline',
-    title: 'My Appointments',
-    subtitle: 'Upcoming & past visits',
-    route: '/(tabs)/appointments'
-  },
-  {
-    id: 'prescriptions',
-    icon: 'medical-outline',
-    title: 'Prescriptions',
-    subtitle: 'Current medications',
-    route: '/(tabs)/prescriptions'
-  },
-  {
-    id: 'emergency',
-    icon: 'shield-outline',
-    title: 'Emergency Contacts',
-    subtitle: 'Manage emergency info',
-    route: '/(tabs)/emergency'
-  },
-  {
-    id: 'notifications',
-    icon: 'notifications-outline',
-    title: 'Notifications',
-    subtitle: 'Alerts & reminders',
-    route: '/(tabs)/notifications'
-  }
-];
-
 export default function Profile() {
   const { t } = useTranslation();
   const router = useRouter();
   const [currentLanguage, setCurrentLanguage] = useState('en');
+
+  // Initialize current language from storage
+  useEffect(() => {
+    const getCurrentLanguage = async () => {
+      try {
+        const savedLanguage = await AsyncStorage.getItem(LANGUAGE_KEY);
+        if (savedLanguage) {
+          setCurrentLanguage(savedLanguage);
+        }
+      } catch (error) {
+        console.error('Failed to get current language:', error);
+      }
+    };
+    getCurrentLanguage();
+  }, []);
+
+  // Menu items with translation keys
+  const MENU_ITEMS = [
+    {
+      id: 'medical_records',
+      icon: 'document-text-outline',
+      titleKey: 'medical_records',
+      subtitleKey: 'medical_records_subtitle',
+      route: '/(tabs)/medical-records'
+    },
+    {
+      id: 'appointments',
+      icon: 'calendar-outline',
+      titleKey: 'my_appointments',
+      subtitleKey: 'appointments_subtitle',
+      route: '/(tabs)/appointments'
+    },
+    {
+      id: 'prescriptions',
+      icon: 'medical-outline',
+      titleKey: 'prescriptions',
+      subtitleKey: 'prescriptions_subtitle',
+      route: '/(tabs)/prescriptions'
+    },
+    {
+      id: 'emergency',
+      icon: 'shield-outline',
+      titleKey: 'emergency_contacts',
+      subtitleKey: 'emergency_subtitle',
+      route: '/(tabs)/emergency'
+    },
+    {
+      id: 'notifications',
+      icon: 'notifications-outline',
+      titleKey: 'notifications',
+      subtitleKey: 'notifications_subtitle',
+      route: '/(tabs)/notifications'
+    }
+  ];
 
   const changeLang = useCallback(async (lng: 'en' | 'pa') => {
     try {
@@ -132,24 +148,24 @@ export default function Profile() {
             <View style={styles.quickStats}>
               <View style={styles.statItem}>
                 <Text style={styles.statValue}>O+</Text>
-                <Text style={styles.statLabel}>Blood Type</Text>
+                <Text style={styles.statLabel}>{t('blood_type')}</Text>
               </View>
               <View style={styles.statDivider} />
               <View style={styles.statItem}>
                 <Text style={styles.statValue}>38</Text>
-                <Text style={styles.statLabel}>Age</Text>
+                <Text style={styles.statLabel}>{t('age')}</Text>
               </View>
               <View style={styles.statDivider} />
               <View style={styles.statItem}>
                 <Text style={styles.statValue}>12</Text>
-                <Text style={styles.statLabel}>Visits</Text>
+                <Text style={styles.statLabel}>{t('visits')}</Text>
               </View>
             </View>
           </View>
 
           {/* Language Settings */}
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Language Preference</Text>
+            <Text style={styles.sectionTitle}>{t('language_preference')}</Text>
             <View style={styles.languageContainer}>
               <TouchableOpacity
                 style={[
@@ -195,7 +211,7 @@ export default function Profile() {
 
           {/* Menu Items */}
           <View style={styles.section}>
-            <Text style={styles.sectionTitle}>Health & Settings</Text>
+            <Text style={styles.sectionTitle}>{t('health_settings')}</Text>
             {MENU_ITEMS.map((item) => (
               <TouchableOpacity
                 key={item.id}
@@ -207,8 +223,8 @@ export default function Profile() {
                   <Ionicons name={item.icon as any} size={22} color="#666" />
                 </View>
                 <View style={styles.menuContent}>
-                  <Text style={styles.menuTitle}>{item.title}</Text>
-                  <Text style={styles.menuSubtitle}>{item.subtitle}</Text>
+                  <Text style={styles.menuTitle}>{t(item.titleKey)}</Text>
+                  <Text style={styles.menuSubtitle}>{t(item.subtitleKey)}</Text>
                 </View>
                 <Ionicons name="chevron-forward" size={18} color="#ccc" />
               </TouchableOpacity>
@@ -219,18 +235,18 @@ export default function Profile() {
           <View style={styles.emergencyCard}>
             <View style={styles.emergencyHeader}>
               <Ionicons name="alert-circle" size={24} color="#ff4444" />
-              <Text style={styles.emergencyTitle}>Emergency Contact</Text>
+              <Text style={styles.emergencyTitle}>{t('emergency_contact')}</Text>
             </View>
             <Text style={styles.emergencyContact}>{USER_DATA.emergencyContact}</Text>
             <Text style={styles.emergencyNote}>
-              In case of medical emergency, this contact will be notified
+              {t('emergency_note')}
             </Text>
           </View>
 
           {/* App Info */}
           <View style={styles.appInfo}>
-            <Text style={styles.appVersion}>Nabha Telemedicine v1.0.0</Text>
-            <Text style={styles.appCopyright}>© 2025 Nabha Healthcare</Text>
+            <Text style={styles.appVersion}>{t('app_version')}</Text>
+            <Text style={styles.appCopyright}>{t('app_copyright')}</Text>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -238,6 +254,7 @@ export default function Profile() {
   );
 }
 
+// Styles remain the same as before
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -251,7 +268,8 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     backgroundColor: 'white',
     borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0'
+    borderBottomColor: '#f0f0f0',
+    marginTop: 20,
   },
   backButton: {
     padding: 8
