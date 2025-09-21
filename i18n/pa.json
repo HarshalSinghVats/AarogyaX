@@ -1,0 +1,13 @@
+{
+  "welcome": "ਸਵਾਗਤ ਹੈ, {{name}}",
+  "how_can_i_help": "ਮੈਂ ਤੁਹਾਡੀ ਕਿਸ ਤਰ੍ਹਾਂ ਮਦਦ ਕਰ ਸਕਦਾ/ਸਕਦੀ ਹਾਂ?",
+  "doctor_call": "ਡਾਕਟਰ ਕਾਲ",
+  "symptom_checker": "ਲੱਛਣ ਜਾਂਚ",
+  "medical_records": "ਮੈਡੀਕਲ ਰਿਕਾਰਡ",
+  "medicine_availability": "ਦਵਾਈ ਉਪਲਬਧਤਾ",
+  "profile": "ਪ੍ਰੋਫਾਇਲ",
+  "language_english": "English",
+  "language_punjabi": "ਪੰਜਾਬੀ",
+  "switch_language": "ਭਾਸ਼ਾ ਬਦਲੋ",
+  "logout": "ਲੌਗਆਉਟ"
+}

@@ -1,0 +1,13 @@
+{
+  "welcome": "Welcome, {{name}}",
+  "how_can_i_help": "How can I help you?",
+  "doctor_call": "Doctor Call",
+  "symptom_checker": "Symptom Checker",
+  "medical_records": "Medical Records",
+  "medicine_availability": "Medicine Availability",
+  "profile": "Profile",
+  "language_english": "English",
+  "language_punjabi": "ਪੰਜਾਬੀ",
+  "switch_language": "Switch Language",
+  "logout": "Logout"
+}
