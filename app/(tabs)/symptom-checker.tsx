@@ -1,23 +1,23 @@
 // app/(tabs)/symptom-checker.tsx
-import React, { useState, useCallback, useRef, useEffect } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  TouchableOpacity,
-  ScrollView,
-  StatusBar,
-  Platform,
-  TextInput,
-  FlatList,
-  Animated,
-  Alert
-} from 'react-native';
-import { useTranslation } from 'react-i18next';
-import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useRouter } from 'expo-router';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import {
+  Alert,
+  Animated,
+  FlatList,
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
+} from 'react-native';
 
 // Types
 interface Symptom {
@@ -504,7 +504,7 @@ export default function SymptomChecker() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F9FAFB'
+    backgroundColor: 'white'
   },
   header: {
     flexDirection: 'row',
@@ -515,7 +515,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderBottomWidth: 1,
     borderBottomColor: '#f0f0f0',
-    marginTop: 40,
+    marginTop: 15,
   },
   backButton: {
     padding: 8

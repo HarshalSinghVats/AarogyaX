@@ -356,14 +356,14 @@ export default function DoctorCall() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F9FAFB'
+    backgroundColor: 'white'
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
-    marginTop: 40,
+    marginTop: 15,
     paddingVertical: 16,
     backgroundColor: 'white',
     borderBottomWidth: 1,

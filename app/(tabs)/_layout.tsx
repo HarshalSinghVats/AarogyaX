@@ -24,7 +24,7 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <Ionicons name="home" size={28} color={color} />,
         }}
       />
-      
+
       {/* Hide doctor-call from tabs */}
       <Tabs.Screen
         name="doctor-call"
@@ -32,7 +32,7 @@ export default function TabLayout() {
           href: null, // This hides it from tabs
         }}
       />
-      
+
       {/* Hide symptom-checker from tabs */}
       <Tabs.Screen
         name="symptom-checker"
@@ -40,7 +40,13 @@ export default function TabLayout() {
           href: null, // This hides it from tabs
         }}
       />
-      
+      <Tabs.Screen
+        name="medicine"
+        options={{
+          href: null, // This hides it from tabs
+        }}
+      />
+
       <Tabs.Screen
         name="profile"
         options={{
