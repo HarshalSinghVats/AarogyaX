@@ -93,7 +93,7 @@ export default function MedicalRecords() {
 
   const handleDownloadLatest = useCallback(async () => {
     setIsDownloading(true);
-    
+
     // Simulate download process
     setTimeout(() => {
       setIsDownloading(false);
@@ -101,9 +101,11 @@ export default function MedicalRecords() {
         t('download_complete'),
         t('download_complete_msg'),
         [
-          { text: t('view_file'), onPress: () => {
-            // Navigate to file viewer
-          }},
+          {
+            text: t('view_file'), onPress: () => {
+              // Navigate to file viewer
+            }
+          },
           { text: t('ok'), style: 'default' }
         ]
       );
@@ -115,15 +117,21 @@ export default function MedicalRecords() {
       record.title,
       t('record_actions'),
       [
-        { text: t('view'), onPress: () => {
-          // Navigate to record viewer
-        }},
-        { text: t('download'), onPress: () => {
-          // Download specific record
-        }},
-        { text: t('share'), onPress: () => {
-          // Share record
-        }},
+        {
+          text: t('view'), onPress: () => {
+            // Navigate to record viewer
+          }
+        },
+        {
+          text: t('download'), onPress: () => {
+            // Download specific record
+          }
+        },
+        {
+          text: t('share'), onPress: () => {
+            // Share record
+          }
+        },
         { text: t('cancel'), style: 'cancel' }
       ]
     );
@@ -173,10 +181,10 @@ export default function MedicalRecords() {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-GB', { 
-      day: '2-digit', 
-      month: 'short', 
-      year: 'numeric' 
+    return date.toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
     });
   };
 
@@ -190,9 +198,7 @@ export default function MedicalRecords() {
             <Ionicons name="arrow-back" size={24} color="#1A1A1A" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>{t('medical_records')}</Text>
-          <TouchableOpacity style={styles.searchButton}>
-            <Ionicons name="search-outline" size={24} color="#666" />
-          </TouchableOpacity>
+          <View style={styles.placeholder} />
         </View>
 
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -202,7 +208,7 @@ export default function MedicalRecords() {
               <View style={styles.latestIconContainer}>
                 <Ionicons name="cloud-download-outline" size={48} color="#6366F1" />
               </View>
-              
+
               <Text style={styles.latestTitle}>{t('latest_records')}</Text>
               <Text style={styles.latestSubtitle}>
                 {t('latest_records_desc')}
@@ -253,10 +259,10 @@ export default function MedicalRecords() {
                     styles.recordIconContainer,
                     { backgroundColor: `${getRecordColor(record.type)}20` }
                   ]}>
-                    <Ionicons 
-                      name={getRecordIcon(record.type) as any} 
-                      size={24} 
-                      color={getRecordColor(record.type)} 
+                    <Ionicons
+                      name={getRecordIcon(record.type) as any}
+                      size={24}
+                      color={getRecordColor(record.type)}
                     />
                   </View>
 
@@ -306,31 +312,6 @@ export default function MedicalRecords() {
           </View>
 
           {/* Quick Actions */}
-          <View style={styles.quickActionsSection}>
-            <Text style={styles.sectionTitle}>{t('quick_actions')}</Text>
-            
-            <View style={styles.quickActionsGrid}>
-              <TouchableOpacity style={styles.quickActionCard}>
-                <Ionicons name="camera-outline" size={32} color="#4CAF50" />
-                <Text style={styles.quickActionText}>{t('scan_document')}</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.quickActionCard}>
-                <Ionicons name="cloud-upload-outline" size={32} color="#2196F3" />
-                <Text style={styles.quickActionText}>{t('upload_record')}</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.quickActionCard}>
-                <Ionicons name="share-outline" size={32} color="#FF9800" />
-                <Text style={styles.quickActionText}>{t('share_with_doctor')}</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.quickActionCard}>
-                <Ionicons name="settings-outline" size={32} color="#9C27B0" />
-                <Text style={styles.quickActionText}>{t('privacy_settings')}</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
         </ScrollView>
       </SafeAreaView>
     </>
@@ -340,7 +321,7 @@ export default function MedicalRecords() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F9FAFB'
+    backgroundColor: 'white'
   },
   header: {
     flexDirection: 'row',
@@ -350,7 +331,8 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     backgroundColor: 'white',
     borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0'
+    borderBottomColor: '#f0f0f0',
+    marginTop: 15,
   },
   backButton: {
     padding: 8
@@ -583,5 +565,9 @@ const styles = StyleSheet.create({
     marginTop: 8,
     textAlign: 'center',
     fontWeight: '500'
+  },
+  placeholder: {
+    width: 40, // Same width as the back button (8 padding + 24 icon + 8 padding)
+    height: 40  // Same height for consistency
   }
 });

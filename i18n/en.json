@@ -166,5 +166,11 @@
   "scan_document": "Scan Document",
   "upload_record": "Upload Record",
   "share_with_doctor": "Share with Doctor",
-  "privacy_settings": "Privacy Settings"
+  "privacy_settings": "Privacy Settings",
+  "complete_blood_count": "Complete Blood Count (CBC)",
+  "prescription_hypertension": "Prescription - Hypertension",
+  "chest_xray_report": "Chest X-Ray Report",
+  "blood_work_desc": "Blood work",
+  "medicine_prescription_desc": "Medicine prescription", 
+  "xray_report_desc": "X-ray report"
 }

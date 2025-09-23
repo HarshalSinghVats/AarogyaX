@@ -166,5 +166,11 @@
   "scan_document": "ਦਸਤਾਵੇਜ਼ ਸਕੈਨ ਕਰੋ",
   "upload_record": "ਰਿਕਾਰਡ ਅੱਪਲੋਡ ਕਰੋ",
   "share_with_doctor": "ਡਾਕਟਰ ਨਾਲ ਸਾਂਝਾ ਕਰੋ",
-  "privacy_settings": "ਪ੍ਰਾਈਵੇਸੀ ਸੈਟਿੰਗ"
+  "privacy_settings": "ਪ੍ਰਾਈਵੇਸੀ ਸੈਟਿੰਗ",
+  "complete_blood_count": "[translate:ਪੂਰਨ ਖੂਨ ਗਿਣਤੀ (ਸੀਬੀਸੀ)]",
+  "prescription_hypertension": "[translate:ਨੁਸਖਾ - ਹਾਈ ਬਲੱਡ ਪ੍ਰੈਸ਼ਰ]",
+  "chest_xray_report": "[translate:ਛਾਤੀ ਦੀ ਐਕਸ-ਰੇ ਰਿਪੋਰਟ]",
+  "blood_work_desc": "[translate:ਖੂਨ ਦੀ ਜਾਂਚ]",
+  "medicine_prescription_desc": "[translate:ਦਵਾਈ ਦਾ ਨੁਸਖਾ]",
+  "xray_report_desc": "[translate:ਐਕਸ-ਰੇ ਰਿਪੋਰਟ]"
 }
