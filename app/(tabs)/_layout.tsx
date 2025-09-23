@@ -46,7 +46,12 @@ export default function TabLayout() {
           href: null, // This hides it from tabs
         }}
       />
-
+      <Tabs.Screen
+        name="medical-records"
+        options={{
+          href: null, // This hides it from tabs
+        }}
+      />
       <Tabs.Screen
         name="profile"
         options={{
