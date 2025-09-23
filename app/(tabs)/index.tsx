@@ -11,7 +11,8 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  View
+  View,
+  Image
 } from 'react-native';
 
 // Constants
@@ -62,7 +63,7 @@ const ActionCard = React.memo<{
   onPress: (route: string) => void;
   t: (key: string) => string;
 }>(({ card, onPress, t }) => (
-  <TouchableOpacity 
+  <TouchableOpacity
     style={[styles.card, { backgroundColor: card.color }]}
     onPress={() => onPress(card.route)}
     activeOpacity={0.8}
@@ -72,10 +73,10 @@ const ActionCard = React.memo<{
   >
     <View style={styles.cardContent}>
       <View style={styles.iconContainer}>
-        <Ionicons 
-          name={card.icon} 
-          size={28} 
-          color="white" 
+        <Ionicons
+          name={card.icon}
+          size={28}
+          color="white"
         />
       </View>
       <Text style={styles.cardText} numberOfLines={2}>
@@ -100,12 +101,12 @@ export default function Home() {
   }, [router]);
 
   // Memoized user name
-  const userName = useMemo(() => 'Rajesh', []);
+  const userName = useMemo(() => 'Klaus', []);
 
   return (
     <>
-      <StatusBar 
-        barStyle="dark-content" 
+      <StatusBar
+        barStyle="dark-content"
         backgroundColor="#F9FAFB"
         translucent={false}
       />
@@ -120,9 +121,9 @@ export default function Home() {
               {t('how_can_i_help')}
             </Text>
           </View>
-          
+
           {/* Profile Button */}
-          <TouchableOpacity 
+          <TouchableOpacity
             style={styles.profileButton}
             onPress={handleProfilePress}
             activeOpacity={0.7}
@@ -130,8 +131,12 @@ export default function Home() {
             accessibilityLabel="Profile"
             hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
           >
-            <Ionicons name="person-circle" size={32} color="#666" />
+            <Image
+              source={require('../../assets/images/klaus.jpg')}
+              style={styles.profileButtonImage}
+            />
           </TouchableOpacity>
+
         </View>
 
         {/* Quick Actions Grid */}
@@ -146,7 +151,7 @@ export default function Home() {
           ))}
         </View>
 
-        {/* Quick Stats or Recent Activity */}  
+        {/* Quick Stats or Recent Activity */}
       </SafeAreaView>
     </>
   );
@@ -154,44 +159,58 @@ export default function Home() {
 
 // Optimized StyleSheet
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
+  container: {
+    flex: 1,
     paddingHorizontal: CARD_PADDING,
     paddingTop: Platform.OS === 'android' ? 10 : 0,
-    backgroundColor: '#F9FAFB' 
+    backgroundColor: '#F9FAFB'
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
     marginBottom: 132,
-    marginTop:40,
+    marginTop: 40,
     paddingTop: 10
   },
   welcomeContainer: {
     flex: 1
   },
-  welcome: { 
-    fontSize: 26, 
-    fontWeight: '700', 
+  welcome: {
+    fontSize: 26,
+    fontWeight: '700',
     marginBottom: 6,
     color: '#1A1A1A',
     letterSpacing: -0.5
   },
-  subtitle: { 
-    color: '#616161', 
+  subtitle: {
+    color: '#616161',
     fontSize: 16,
     fontWeight: '400',
     lineHeight: 22
   },
   profileButton: {
-    padding: 4,
-    borderRadius: 20,
-    backgroundColor: 'rgba(0,0,0,0.05)'
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    borderRadius: 18, // Slightly larger for border
+    padding: 2, // Space for border
+    backgroundColor: 'white', // Border color
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.1,
+        shadowRadius: 2,
+      },
+      android: {
+        elevation: 2,
+      },
+    }),
   },
-  grid: { 
-    flexDirection: 'row', 
-    flexWrap: 'wrap', 
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-between',
     marginBottom: 24
   },
@@ -224,10 +243,10 @@ const styles = StyleSheet.create({
     borderRadius: 24,
     padding: 12
   },
-  cardText: { 
-    color: 'white', 
-    fontWeight: '600', 
-    fontSize: 14, 
+  cardText: {
+    color: 'white',
+    fontWeight: '600',
+    fontSize: 14,
     textAlign: 'center',
     lineHeight: 18
   },
@@ -267,5 +286,11 @@ const styles = StyleSheet.create({
     color: '#666',
     marginTop: 4,
     fontWeight: '500'
+  },
+  profileButtonImage: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: '#f0f0f0'
   }
 });

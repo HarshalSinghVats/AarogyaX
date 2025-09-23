@@ -23,13 +23,13 @@ const { width } = Dimensions.get('window');
 
 // User data - in real app, this would come from your auth/state management
 const USER_DATA = {
-  name: 'Rajesh Kumar',
-  email: 'rajesh@example.com',
-  phone: '+91 98765 43210',
+  name: 'Klaus',
+  email: 'klaus@orleans.com',
+  phone: '+91 99999 88888',
   bloodType: 'O+',
   dob: '15 March 1985',
-  emergencyContact: '+91 87654 32109',
-  avatar: 'https://via.placeholder.com/120x120/6366f1/ffffff?text=RK'
+  emergencyContact: '+91 77777 44444',
+  avatar: require('../../assets/images/klaus.jpg') // Direct require, no variable
 };
 
 export default function Profile() {
@@ -116,14 +116,14 @@ export default function Profile() {
         <ScrollView showsVerticalScrollIndicator={false}>
           {/* Header */}
           <View style={styles.header}>
-            <TouchableOpacity 
+            <TouchableOpacity
               style={styles.backButton}
               onPress={() => router.back()}
             >
               <Ionicons name="arrow-back" size={24} color="#1A1A1A" />
             </TouchableOpacity>
             <Text style={styles.headerTitle}>{t('profile')}</Text>
-            <TouchableOpacity 
+            <TouchableOpacity
               style={styles.editButton}
               onPress={handleEditProfile}
             >
@@ -134,10 +134,11 @@ export default function Profile() {
           {/* Profile Card */}
           <View style={styles.profileCard}>
             <View style={styles.avatarContainer}>
-              <Image source={{ uri: USER_DATA.avatar }} style={styles.avatar} />
+              {/* FIXED: Use direct source for local images, not { uri: } */}
+              <Image source={USER_DATA.avatar} style={styles.avatar} />
               <View style={styles.statusIndicator} />
             </View>
-            
+
             <View style={styles.profileInfo}>
               <Text style={styles.name}>{USER_DATA.name}</Text>
               <Text style={styles.email}>{USER_DATA.email}</Text>
@@ -174,10 +175,10 @@ export default function Profile() {
                 ]}
                 onPress={() => changeLang('en')}
               >
-                <Ionicons 
-                  name="globe-outline" 
-                  size={20} 
-                  color={currentLanguage === 'en' ? '#fff' : '#666'} 
+                <Ionicons
+                  name="globe-outline"
+                  size={20}
+                  color={currentLanguage === 'en' ? '#fff' : '#666'}
                 />
                 <Text style={[
                   styles.languageText,
@@ -194,10 +195,10 @@ export default function Profile() {
                 ]}
                 onPress={() => changeLang('pa')}
               >
-                <Ionicons 
-                  name="globe-outline" 
-                  size={20} 
-                  color={currentLanguage === 'pa' ? '#fff' : '#666'} 
+                <Ionicons
+                  name="globe-outline"
+                  size={20}
+                  color={currentLanguage === 'pa' ? '#fff' : '#666'}
                 />
                 <Text style={[
                   styles.languageText,
@@ -254,11 +255,11 @@ export default function Profile() {
   );
 }
 
-// Styles remain the same as before
+// Fixed styles - removed corrupted marginTop and fixed container background
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: '#F9FAFB' // Fixed: was 'white', should match StatusBar
   },
   header: {
     flexDirection: 'row',
@@ -268,8 +269,8 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     backgroundColor: 'white',
     borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
-    marginTop: 15,
+    borderBottomColor: '#f0f0f0'
+    // Removed corrupted marginTop
   },
   backButton: {
     padding: 8
