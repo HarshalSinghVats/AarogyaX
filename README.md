@@ -1,14 +1,14 @@
-# 🌐 Nabha TeleMed  
+# 🌐 AarogyaX  
 
 > *Reimagining healthcare access with technology.*  
 
-Nabha TeleMed is a modern telemedicine platform designed to connect patients with doctors seamlessly. Whether it's a quick consultation, prescription renewal, or real-time monitoring, Nabha TeleMed brings healthcare right to your screen.  
+AarogyaX is a modern telemedicine platform designed to connect patients with doctors seamlessly. Whether it's a quick consultation, prescription renewal, or real-time monitoring, Nabha TeleMed brings healthcare right to your screen.  
 
 ---
 
-## 🚀 What is Nabha TeleMed?  
+## 🚀 What is AarogyaX?  
 
-Healthcare shouldn’t be limited by geography. Nabha TeleMed allows patients to:  
+Healthcare shouldn’t be limited by geography. AarogyaX allows patients to:  
 - 📅 Book online appointments with doctors.  
 - 🎥 Consult via **secure video calls** powered by **WebRTC**.  
 - 📂 Access electronic health records stored safely in **Postgres/SQLite**.  
@@ -59,7 +59,7 @@ The end goal: *Bring medical care closer, faster, and smarter.*
 
 ## 🎯 Vision  
 
-The mission of Nabha TeleMed is simple:  
+The mission of AarogyaX is simple:  
 **"Accessible healthcare for everyone, anytime, anywhere."**  
 
 We are building the foundation for a digital-first healthcare ecosystem where patients can trust technology, and doctors can focus on healing.  
