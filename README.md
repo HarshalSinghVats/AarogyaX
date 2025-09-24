@@ -42,9 +42,6 @@ The end goal: *Bring medical care closer, faster, and smarter.*
 | **ORM**               | Prisma |
 | **Real-Time**         | WebRTC |
 | **APIs**              | REST / GraphQL |
-| **Scripting**         | Bash, Windows Terminal |
-| **Data Science (future)** | Python, NumPy, Pandas, Scikit-Learn |
-
 ---
 
 ## 📊 Why this stack?  
@@ -78,9 +75,6 @@ We are building the foundation for a digital-first healthcare ecosystem where pa
 ![Postgres](https://img.shields.io/badge/Postgres-336791?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)  
-![NumPy](https://img.shields.io/badge/Numpy-013243?style=for-the-badge&logo=numpy&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
 ![Scikit-learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
 ![WebRTC](https://img.shields.io/badge/WebRTC-333333?style=for-the-badge&logo=webrtc&logoColor=white)  
 
